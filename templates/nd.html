@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Attributes Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .result-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .emotion-container, .gender-container, .race-container {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facial Attributes Analysis Result</h1>
+    
+    <div class="result-container">
+        <h2>Emotion Analysis</h2>
+        <div class="emotion-container">
+            <p>Dominant Emotion: {{ result[0]['dominant_emotion'] }}</p>
+            <ul>
+                {% for emotion, confidence in result[0]['emotion'].items() %}
+                    <li>{{ emotion }}: {{ confidence }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h2>Gender Analysis</h2>
+        <div class="gender-container">
+            <p>Dominant Gender: {{ result[0]['dominant_gender'] }}</p>
+            <ul>
+                {% for gender, confidence in result[0]['gender'].items() %}
+                    <li>{{ gender }}: {{ confidence }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h2>Race Analysis</h2>
+        <div class="race-container">
+            <p>Dominant Race: {{ result[0]['dominant_race'] }}</p>
+            <ul>
+                {% for race, confidence in result[0]['race'].items() %}
+                    <li>{{ race }}: {{ confidence }}%</li>
+                {% endfor %}
+            </ul>
+            <p><a href="{{ url_for('index') }}">Emotion Music Recommender</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Emotion Analysis</title>
+</head>
+<body>
+    <h1>Voice Emotion Analysis</h1>
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <label for="audio">Upload Audio File:</label>
+        <input type="file" name="audio" accept="audio/*" required>
+        <button type="submit">Analyze</button>
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>

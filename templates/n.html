@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form method="post">
+        <label for="user_input">Enter text for sentiment analysis:</label>
+        <textarea id="user_input" name="user_input" rows="4" cols="50">{{ user_input }}</textarea>
+        <br>
+        <input type="submit" value="Analyze">
+        <p><a href="{{ url_for('index') }}">Emotion Music Recommender</a></p>
+    </form>
+    {% if sentiment %}
+        <p>Sentiment: {{ sentiment }}</p>
+    {% endif %}
+</body>
+</html>
